@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"
 
 import HabitList from '../../components/HabitList'
+import LoginModal from '../../components/LoginModal'
 
 function HabitsPage() {
     const [habits, setHabits] = useState([]);
@@ -25,7 +26,7 @@ function HabitsPage() {
         <>
         <h2>HabitsPage</h2>
         <HabitList habits={habits} />
-        
+        <LoginModal />
         </>
     )
 }
