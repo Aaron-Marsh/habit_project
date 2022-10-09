@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
+import LoginModalContent from '../LoginModalContent';
+import SignupModalContent from '../SignupModalContent';
+
 function LoginModal() {
   const [show, setShow] = useState(false);
   const [showSignUp, setSignUp] = useState(false)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleShowSignUp = () => setSignUp(true)
+  const handleShowSignup = () => setSignUp(true)
   const handleShowLogin = () => setSignUp(false)
 
   return (
@@ -16,36 +19,13 @@ function LoginModal() {
         Login / Signup
       </button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Login/Signup</Modal.Title>
-        </Modal.Header>
-        {showSignUp ? (
-        <Modal.Body>Sign Up!</Modal.Body>
-        ) : (
-            <Modal.Body>Log In!</Modal.Body>
-        )}
-        
-
-        <Modal.Footer>
-          <button onClick={handleClose}>
-            Close
-          </button>
-          <button onClick={handleClose}>
-            Save Changes
-          </button>
+      <Modal show={show} onHide={handleClose}>   
           {showSignUp ? (
-            <button onClick={handleShowLogin}>
-                Already have an account? Login
-            </button>
+            <SignupModalContent handleShowLogin={handleShowLogin} onHide={handleClose} />
           ) : (
-            <button onClick={handleShowSignUp}>
-                Don't have an account? Create account
-            </button>
-          )}
-          
+            <LoginModalContent handleShowSignup={handleShowSignup} onHide={handleClose} />
 
-        </Modal.Footer>
+          )} 
       </Modal>
     </>
   );

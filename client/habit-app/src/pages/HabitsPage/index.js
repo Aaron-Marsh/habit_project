@@ -10,7 +10,6 @@ function HabitsPage() {
         try {
             let url = "http://localhost:3001/habits/user/629f8820a84519212982bb30"
             const { data } = await axios.get(url)
-            console.log(data)
 
             setHabits(data.habits)
         } catch (err) {
