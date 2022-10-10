@@ -5,13 +5,15 @@ import HabitModal from "../HabitModal";
 
 function Habit({ habit }) {
     const [show, setShow] = useState(false);
+    const [showHabit, setShowHabit] = useState(true)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const handleDeleteHabit = () => setShowHabit(false);
 
     return(
         <>
-        <div style={{display:'inline-block', borderRadius:'8px', overflow:'hidden'}}>
+        {showHabit ? (<><div style={{display:'inline-block', borderRadius:'8px', overflow:'hidden'}}>
             <button style={{borderRadius:'0px'}}>-</button>
             <button style={{borderRadius:'0px'}} onClick={handleShow}>
    
@@ -20,7 +22,8 @@ function Habit({ habit }) {
             </button>
             <button style={{borderRadius:'0px'}}>+</button>
         </div>
-        <HabitModal habit={habit} show={show} onHide={handleClose} />
+        </>) : null}
+        <HabitModal habit={habit} show={show} onHide={handleClose} handleDeleteHabit={handleDeleteHabit} />
         </>
     )
 }

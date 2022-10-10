@@ -1,10 +1,29 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import Popover from "react-bootstrap/Popover";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
-import LoginModalContent from '../LoginModalContent';
-import SignupModalContent from '../SignupModalContent';
 
 function HabitModal(props) {
+    const onDeleteClick = () => {
+        props.handleDeleteHabit()
+        props.onHide()
+    }
+
+    const cancelDeleteClick = () => {
+        document.getElementById("delete-habit-btn").click()
+    }
+
+    const popover = (
+        <Popover id="test">
+            <Popover.Body>
+            <p>Are you sure? Once deleted, this habit cannot be restored! </p>
+            <button onClick={cancelDeleteClick}>Don't Delete</button>
+            <button onClick={onDeleteClick}>Confirm Delete</button>
+          </Popover.Body>
+        </Popover>
+      );
+
   return (
     <>
         <Modal show={props.show} onHide={props.onHide}>   
@@ -16,8 +35,22 @@ function HabitModal(props) {
                 <h4>Current Streak:</h4>
                 <h4>{props.habit.streak}</h4>
                 <p>You have completed {props.habit.current} out of your {props.habit.frequency} goal of {props.habit.goal} </p>
-                
             </Modal.Body>
+
+            <Modal.Footer>
+                <OverlayTrigger
+                  classname=""
+                  trigger="click"
+                  placement="top"
+                  overlay={popover}
+                  rootClose
+                >
+                <button id="delete-habit-btn">
+                    Delete Habit
+                </button>
+                </OverlayTrigger>
+            </Modal.Footer>
+
         </Modal>
     </>
   );
