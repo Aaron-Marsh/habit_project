@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"
 
 import Habit from "../Habit";
+import CreateHabitButton from "../CreateHabitButton";
 
 function HabitList(props) {
     const [habits, setHabits] = useState([])
@@ -28,6 +29,7 @@ function HabitList(props) {
                     <Habit habit={habit} />
                 </div>
             ))}
+            <CreateHabitButton userId={props.userId} />
         </>
     )
 }
