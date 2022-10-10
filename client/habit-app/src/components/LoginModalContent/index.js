@@ -35,9 +35,10 @@ function LoginModalContent(props) {
                     JSON.stringify(userDetails),
                     options
                 )
-                console.log(data)
+                console.log(data.username)
                 props.onHide()
-                
+                props.handleUserId(data.userId)
+                props.handleUsername(data.username)
 
             } catch (err) {
                 if (!err.response) {

@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import LoginModalContent from '../LoginModalContent';
 import SignupModalContent from '../SignupModalContent';
 
-function LoginModal() {
+function LoginModal(props) {
   const [show, setShow] = useState(false);
   const [showSignUp, setSignUp] = useState(false)
 
@@ -23,10 +23,11 @@ function LoginModal() {
           {showSignUp ? (
             <SignupModalContent handleShowLogin={handleShowLogin} onHide={handleClose} />
           ) : (
-            <LoginModalContent handleShowSignup={handleShowSignup} onHide={handleClose} />
+            <LoginModalContent handleShowSignup={handleShowSignup} onHide={handleClose} handleUserId={props.handleUserId} handleUsername={props.handleUsername} />
 
           )} 
       </Modal>
+          {/* <button onClick={call}>hi</button> */}
     </>
   );
 }
