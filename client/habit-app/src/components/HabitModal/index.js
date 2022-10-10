@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import axios from "axios"
 
 
 function HabitModal(props) {
-    const onDeleteClick = () => {
-        props.handleDeleteHabit()
-        props.onHide()
+
+    const onDeleteClick = async () => {
+        try {
+            console.log(props.habit.id)
+            let url = `http://localhost:3001/habits/${props.habit.id}`
+            await axios.delete(url)
+            props.handleDeleteHabit()
+            props.onHide()
+
+        } catch (err) {
+            throw new Error(err.message);
+        }
     }
 
     const cancelDeleteClick = () => {
