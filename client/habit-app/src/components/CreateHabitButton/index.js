@@ -6,7 +6,7 @@ import axios from "axios"
 function CreateHabitButton(props) {
     const [show, setShow] = useState(false);
     const [titleInput, setTitleInput] = useState("");
-    const [frequencyInput, setFrequencyInput] = useState("");
+    const [frequencyInput, setFrequencyInput] = useState("Frequency");
     const [goalInput, setGoalInput] = useState("");
     const [error, setError] = useState('');
  
@@ -26,14 +26,16 @@ function CreateHabitButton(props) {
     const handleShow = () => setShow(true);
 
     const onSubmitClick = async e => {
+        console.log(frequencyInput)
         if (titleInput === "") {
             setError("Please give your habit a title!")
-        } else if (frequencyInput === 'Frequency') {
+        } else if (frequencyInput === "Frequency") {
             setError("Please give your habit a frequency in which you want to hit a target!")
         } else if (goalInput < 1 || goalInput > 100) {
             setError("Please set a target between 1 and 100!")
         } else {
             try {
+                setShow(false)
                 let habitDetails = {
                     title: titleInput,
                     frequency: frequencyInput,
@@ -51,7 +53,10 @@ function CreateHabitButton(props) {
                     JSON.stringify(habitDetails),
                     options
                 )
-                console.log(data)
+                props.updateHabits()
+                setTitleInput("")
+                setFrequencyInput("Frequency")
+                setGoalInput("")
 
             } catch (err) {
                 if (!err.response) {
@@ -82,7 +87,7 @@ function CreateHabitButton(props) {
                         maxLength={30}
                     />
                     <select required aria-label="frequency input" onChange={onFrequencyInputChange}>
-                        <option selected>Frequency</option>
+                        <option defaultValue>Frequency</option>
                         <option>Daily</option>
                         <option>Weekly</option>
                         <option>Monthly</option>

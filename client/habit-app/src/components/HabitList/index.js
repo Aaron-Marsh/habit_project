@@ -6,6 +6,8 @@ import CreateHabitButton from "../CreateHabitButton";
 
 function HabitList(props) {
     const [habits, setHabits] = useState([])
+    const [habitUpdate, setHabitUpdate] = useState(false)
+
 
     const fetchHabits = async () => {
         try {
@@ -18,9 +20,11 @@ function HabitList(props) {
         }
     }
 
+    const updateHabits = () => setHabitUpdate(!habitUpdate)
+
     useEffect(() => {
         fetchHabits()
-    }, [])
+    }, [habitUpdate])
 
     return(
         <>
@@ -29,7 +33,7 @@ function HabitList(props) {
                     <Habit habit={habit} />
                 </div>
             ))}
-            <CreateHabitButton userId={props.userId} />
+            <CreateHabitButton userId={props.userId} updateHabits={updateHabits} />
         </>
     )
 }

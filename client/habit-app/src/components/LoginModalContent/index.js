@@ -35,7 +35,6 @@ function LoginModalContent(props) {
                     JSON.stringify(userDetails),
                     options
                 )
-                console.log(data.username)
                 props.onHide()
                 props.handleUserId(data.userId)
                 props.handleUsername(data.username)

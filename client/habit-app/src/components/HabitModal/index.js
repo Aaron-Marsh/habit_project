@@ -9,11 +9,10 @@ function HabitModal(props) {
 
     const onDeleteClick = async () => {
         try {
-            console.log(props.habit.id)
+            props.onHide()
             let url = `http://localhost:3001/habits/${props.habit.id}`
             await axios.delete(url)
             props.handleDeleteHabit()
-            props.onHide()
 
         } catch (err) {
             throw new Error(err.message);
