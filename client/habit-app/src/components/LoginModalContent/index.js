@@ -20,7 +20,7 @@ function LoginModalContent(props) {
             setError("Please enter username and password!")
         } else {
             try {
-                let userDetails = {
+                let userData = {
                     username: usernameInput,
                     password: passwordInput
                 }
@@ -32,7 +32,7 @@ function LoginModalContent(props) {
 
                 const { data } = await axios.post(
                     "http://localhost:3001/auth/login",
-                    JSON.stringify(userDetails),
+                    JSON.stringify(userData),
                     options
                 )
                 props.onHide()
@@ -56,16 +56,20 @@ function LoginModalContent(props) {
                 <Modal.Title>Login</Modal.Title>
             </Modal.Header>
        
-            <Modal.Body>
-                <form className="login">
+            <Modal.Body className="block">
+                <form>
+                <label htmlFor="login-username"></label>
                     <input
+                        id="login-username"
                         type="text"
                         required
                         placeholder="Username"
                         onChange={onUsernameInputChange}
                         aria-label="username input"
                     />
+                    <label htmlFor="login-password"></label>
                     <input
+                        id="login-password"
                         type="password"
                         required
                         placeholder="Password"
