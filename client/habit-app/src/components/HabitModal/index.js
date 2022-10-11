@@ -26,7 +26,7 @@ function HabitModal(props) {
     const popover = (
         <Popover id="test">
             <Popover.Body>
-            <p>Are you sure? Once deleted, this habit cannot be restored! </p>
+            <p>Are you sure? Once deleted, this habit cannot be restored!</p>
             <button onClick={cancelDeleteClick}>Don't Delete</button>
             <button onClick={onDeleteClick}>Confirm Delete</button>
           </Popover.Body>

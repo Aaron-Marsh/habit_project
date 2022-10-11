@@ -40,11 +40,7 @@ function LoginModalContent(props) {
                 props.handleUsername(data.username)
 
             } catch (err) {
-                if (err.response.status === 401) {
-                    setError("Login failed! Please check your username / password or register an account")
-                } else {
-                    setError("Login Failed", err)
-                }
+                setError("Login Failed", err)
             }
         }
     };
@@ -57,7 +53,7 @@ function LoginModalContent(props) {
             </Modal.Header>
        
             <Modal.Body className="block">
-                <form>
+                <form  name="Login form">
                 <label htmlFor="login-username"></label>
                     <input
                         id="login-username"

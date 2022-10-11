@@ -26,7 +26,6 @@ function CreateHabitButton(props) {
     const handleShow = () => setShow(true);
 
     const onSubmitClick = async e => {
-        console.log(frequencyInput)
         if (titleInput === "") {
             setError("Please give your habit a title!")
         } else if (frequencyInput === "Frequency") {
@@ -95,6 +94,7 @@ function CreateHabitButton(props) {
                         max={100}
                         placeholder="Target to reach"
                         onChange={onGoalInputChange}
+                        aria-label="goal input"
                         />
                 </form>
                 <div>{error}</div>

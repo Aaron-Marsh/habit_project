@@ -41,7 +41,6 @@ function SignupModalContent(props) {
                     JSON.stringify(userData),
                     options
                 )
-                console.log(data)
                 setUsernameInput('')
                 setPasswordInput('')
                 setPasswordInput2('')
@@ -61,7 +60,7 @@ function SignupModalContent(props) {
             </Modal.Header>
        
             <Modal.Body>
-                <form style={{display:'block'}}>
+                <form name="Registration form">
                     <label htmlFor="signup-username"></label>
                     <input
                         id="signup-username"
