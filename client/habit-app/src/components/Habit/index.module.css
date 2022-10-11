@@ -1,0 +1,19 @@
+.habitContainer {
+    display: inline-block;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.habitButton {
+    border: none;
+    min-height: 3.5rem;
+    background-color: steelblue;
+    width: 3rem;
+    color: white;
+}
+.habitButton:hover {
+    opacity: 0.8;
+}
+.mainHabitButton {
+    width: 80vw;
+    max-width: 40rem;
+}

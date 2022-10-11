@@ -36,7 +36,7 @@ function CreateHabitButton(props) {
         } else {
             try {
                 setShow(false)
-                let habitDetails = {
+                let habitData = {
                     title: titleInput,
                     frequency: frequencyInput,
                     goal: goalInput,
@@ -50,7 +50,7 @@ function CreateHabitButton(props) {
 
                 const { data } = await axios.post(
                     "http://localhost:3001/habits/new",
-                    JSON.stringify(habitDetails),
+                    JSON.stringify(habitData),
                     options
                 )
                 props.updateHabits()
@@ -59,11 +59,7 @@ function CreateHabitButton(props) {
                 setGoalInput("")
 
             } catch (err) {
-                if (!err.response) {
-                    setError("No server Response! Please wait and try again")
-                } else {
-                    setError("Could not create a new habit")
-                }
+                alert("Could not create a new habit")
             }
         }
     };

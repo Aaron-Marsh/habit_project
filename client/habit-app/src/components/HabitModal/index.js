@@ -15,7 +15,7 @@ function HabitModal(props) {
             props.handleDeleteHabit()
 
         } catch (err) {
-            throw new Error(err.message);
+            alert('Could not delete habit')
         }
     }
 
@@ -42,8 +42,11 @@ function HabitModal(props) {
 
             <Modal.Body>
                 <h4>Current Streak:</h4>
-                <h4>{props.habit.streak}</h4>
-                <p>You have completed {props.habit.current} out of your {props.habit.frequency} goal of {props.habit.goal} </p>
+                <h4>{props.streak}</h4>
+                <p>You have completed {props.current} out of your {props.habit.frequency.toLowerCase()} goal of {props.habit.goal} </p>
+                {props.completed ? (
+                    <p>Well done! You have completed your {props.habit.frequency.toLowerCase()} habit!</p>
+                ) : null}
             </Modal.Body>
 
             <Modal.Footer>

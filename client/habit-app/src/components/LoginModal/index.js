@@ -27,7 +27,6 @@ function LoginModal(props) {
 
           )} 
       </Modal>
-          {/* <button onClick={call}>hi</button> */}
     </>
   );
 }

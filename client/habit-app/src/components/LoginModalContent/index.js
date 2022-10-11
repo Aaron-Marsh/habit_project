@@ -40,9 +40,7 @@ function LoginModalContent(props) {
                 props.handleUsername(data.username)
 
             } catch (err) {
-                if (!err.response) {
-                    setError("No server Response! Please wait and try again")
-                } else if (err.response.status === 401) {
+                if (err.response.status === 401) {
                     setError("Login failed! Please check your username / password or register an account")
                 } else {
                     setError("Login Failed")
