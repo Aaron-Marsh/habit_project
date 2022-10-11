@@ -28,7 +28,7 @@ function HabitList(props) {
             setHabits(sortedData)
                 
         } catch (err) {
-            alert(' Could not load habits, please refresh and try again!');
+            alert(' Could not load habits, please refresh and try again!', err);
         }
     }
 
@@ -44,7 +44,7 @@ function HabitList(props) {
                 <h2>Daily Habits</h2>
                 {habits.daily.map(habit => (
                 <div key={habit.id}>
-                    <Habit habit={habit} />
+                    <Habit habit={habit} updateHabits={updateHabits} />
                 </div>
                 ))}
             </>
@@ -54,7 +54,7 @@ function HabitList(props) {
                 <h2>Weekly Habits</h2>
                 {habits.weekly.map(habit => (
                 <div key={habit.id}>
-                    <Habit habit={habit} />
+                    <Habit habit={habit} updateHabits={updateHabits} />
                 </div>
                 ))}
             </>
@@ -64,7 +64,7 @@ function HabitList(props) {
                 <h2>Monthly Habits</h2>
                 {habits.monthly.map(habit => (
                 <div key={habit.id}>
-                    <Habit habit={habit} />
+                    <Habit habit={habit} updateHabits={updateHabits} />
                 </div>
                 ))}
             </>

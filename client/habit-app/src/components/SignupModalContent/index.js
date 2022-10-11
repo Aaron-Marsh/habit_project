@@ -41,14 +41,15 @@ function SignupModalContent(props) {
                     JSON.stringify(userData),
                     options
                 )
-                setError("Success! You can now login to your account")
+                console.log(data)
+                setUsernameInput('')
+                setPasswordInput('')
+                setPasswordInput2('')
+                
+                setError(data.msg)
 
             } catch (err) {
-                if (err.response.status === 401) {
-                    setError("Login failed! Please check your username / password or register an account")
-                } else {
-                    setError("Login Failed")
-                }
+                setError("Signup Failed", err)
             }
         }
     };
@@ -56,7 +57,7 @@ function SignupModalContent(props) {
     return(
         <>
             <Modal.Header closeButton>
-                <Modal.Title>Signup</Modal.Title>
+                <Modal.Title className="modal-title">Signup</Modal.Title>
             </Modal.Header>
        
             <Modal.Body>
@@ -65,6 +66,7 @@ function SignupModalContent(props) {
                     <input
                         id="signup-username"
                         type="text"
+                        value={usernameInput}
                         required
                         placeholder="Username"
                         onChange={onUsernameInputChange}
@@ -74,6 +76,7 @@ function SignupModalContent(props) {
                     <input
                         id="signup-password"
                         type="password"
+                        value={passwordInput}
                         required
                         placeholder="Password"
                         onChange={onPasswordInputChange}
@@ -83,21 +86,24 @@ function SignupModalContent(props) {
                     <input
                         id="signup-password2"
                         type="password"
+                        value={passwordInput2}
                         required
                         placeholder="Confirm Password"
                         onChange={onPasswordInputChange2}
                         aria-label="confirm password input"
                         />
                 </form>
-                <button onClick={onRegisterClick}>
-                    Register
-                </button>
                 <div>{error}</div>
             </Modal.Body>
             <Modal.Footer>
+                <div className="btnFootercontainer">
+                <button onClick={onRegisterClick}>
+                    Register
+                </button>
                 <button onClick={props.handleShowLogin}>
                     Already have an account? Login
                 </button>
+                </div>
             </Modal.Footer>
         </>
     )

@@ -12,10 +12,10 @@ function HabitModal(props) {
             props.onHide()
             let url = `http://localhost:3001/habits/${props.habit.id}`
             await axios.delete(url)
-            props.handleDeleteHabit()
+            props.updateHabits()
 
         } catch (err) {
-            alert('Could not delete habit')
+            alert('Could not delete habit', err)
         }
     }
 
@@ -35,7 +35,7 @@ function HabitModal(props) {
 
   return (
     <>
-        <Modal show={props.show} onHide={props.onHide}>   
+        <Modal show={props.show} onHide={props.onHide} centered>   
             <Modal.Header closeButton>
                 <Modal.Title>{props.habit.title}</Modal.Title>
             </Modal.Header>
@@ -57,9 +57,11 @@ function HabitModal(props) {
                   overlay={popover}
                   rootClose
                 >
+                <div className="btnFootercontainer">
                 <button id="delete-habit-btn">
                     Delete Habit
                 </button>
+                </div>
                 </OverlayTrigger>
             </Modal.Footer>
 

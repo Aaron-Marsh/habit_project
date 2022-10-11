@@ -43,7 +43,7 @@ function LoginModalContent(props) {
                 if (err.response.status === 401) {
                     setError("Login failed! Please check your username / password or register an account")
                 } else {
-                    setError("Login Failed")
+                    setError("Login Failed", err)
                 }
             }
         }
@@ -53,7 +53,7 @@ function LoginModalContent(props) {
     return(
         <>
             <Modal.Header closeButton>
-                <Modal.Title>Login</Modal.Title>
+                <Modal.Title className="modal-title">Login</Modal.Title>
             </Modal.Header>
        
             <Modal.Body className="block">
@@ -77,16 +77,18 @@ function LoginModalContent(props) {
                         aria-label="password input"
                     />
                 </form>
-                <button onClick={onSigninClick}>
-                    Sign in
-                </button>
                 <div>{error}</div>
             </Modal.Body>
       
             <Modal.Footer>
+                <div className="btnFootercontainer">
+                <button onClick={onSigninClick}>
+                    Sign in
+                </button>
                 <button onClick={props.handleShowSignup}>
                     Don't have an account? Signup
                 </button>
+                </div>
             </Modal.Footer>
         </>
     )

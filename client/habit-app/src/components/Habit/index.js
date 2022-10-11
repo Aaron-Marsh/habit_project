@@ -5,16 +5,14 @@ import axios from "axios"
 import HabitModal from "../HabitModal";
 import styles from "./index.module.css"
 
-function Habit({ habit }) {
+function Habit({ habit, updateHabits }) {
     const [show, setShow] = useState(false);
-    const [showHabit, setShowHabit] = useState(true)
     const [current, setCurrent] = useState(habit.current)
     const [completed, setCompleted] = useState(habit.completed)
     const [streak, setStreak] = useState(habit.streak)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleDeleteHabit = () => setShowHabit(false);
 
     const handlePlusClicked = async () => {
         if (current < habit.goal) {
@@ -67,16 +65,14 @@ function Habit({ habit }) {
                     options
                 )
             } catch(err) {
-                alert("Could not update habit")
+                alert("Could not update habit", err)
             }
         }
     }
 
     return(
         <>
-        {showHabit ? (<>
         <div className={styles.habitContainer}>
-
             <button className={styles.habitButton} onClick={handleMinusClicked}>-</button>
             <button className={`${styles.habitButton} ${styles.mainHabitButton}`} style={completed ? {backgroundColor:'green'} : {}} onClick={handleShow}>
                 {habit.title} {current}/{habit.goal}
@@ -84,8 +80,7 @@ function Habit({ habit }) {
             <button className={styles.habitButton} onClick={handlePlusClicked}>+</button>
 
         </div>
-        </>) : null}
-        <HabitModal habit={habit} current={current} completed={completed} streak={streak} show={show} onHide={handleClose} handleDeleteHabit={handleDeleteHabit} />
+        <HabitModal habit={habit} current={current} completed={completed} streak={streak} show={show} onHide={handleClose} updateHabits={updateHabits} />
         </>
     )
 }

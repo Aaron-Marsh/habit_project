@@ -59,7 +59,7 @@ function CreateHabitButton(props) {
                 setGoalInput("")
 
             } catch (err) {
-                alert("Could not create a new habit")
+                alert("Could not create a new habit", err)
             }
         }
     };
@@ -101,7 +101,9 @@ function CreateHabitButton(props) {
             </Modal.Body>
 
             <Modal.Footer>
+                <div className="btnFootercontainer">
                 <button onClick={onSubmitClick}>Make Habit</button>
+                </div>
             </Modal.Footer>
 
         </Modal>

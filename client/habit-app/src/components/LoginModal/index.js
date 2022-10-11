@@ -19,7 +19,7 @@ function LoginModal(props) {
         Login / Signup
       </button>
 
-      <Modal show={show} onHide={handleClose} style={{display:'block'}}>   
+      <Modal show={show} onHide={handleClose} centered>   
           {showSignUp ? (
             <SignupModalContent handleShowLogin={handleShowLogin} onHide={handleClose} />
           ) : (
