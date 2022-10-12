@@ -1,11 +1,14 @@
 .fullContainer {
     display: flex;
     justify-content: center;
+    margin: 0.1rem 0rem;
 }
 .habitContainer {
     border-radius: 15px;
+    padding: 0px;
+    margin: 0px;
     overflow: hidden;
-    white-space: nowrap;
+    display: flex;
 }
 .habitButton {
     font-family: poppins;
@@ -24,21 +27,3 @@
 .mainHabitButton {
     width: 30rem;
 }
-
-
-@media (max-width: 960px) {
-    .mainHabitButton {
-        width: 20rem;
-    }
-  }
-
-  @media (max-width: 540px) {
-    .mainHabitButton {
-        width: 10rem;
-    }
-  }
-  @media (max-width: 370px) {
-    .mainHabitButton {
-        width: 8rem;
-    }
-  }

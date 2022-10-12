@@ -80,7 +80,7 @@ function CreateHabitButton(props) {
                         placeholder="Habit title"
                         onChange={onTitleInputChange}
                         aria-label="title input"
-                        maxLength={30}
+                        maxLength={38}
                     />
                     <select className='main-text' required aria-label="frequency input" onChange={onFrequencyInputChange}>
                         <option defaultValue>Frequency</option>
