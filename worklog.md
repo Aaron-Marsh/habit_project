@@ -45,7 +45,7 @@ Last time:
 I finished off the last features of the app, the tests and the styling.
 
 Goals:
-Finish the README and submit the challenge
+Finish the README, deploy the site to netlify and heroku, and submit the challenge.
 
 Blockers:
 
