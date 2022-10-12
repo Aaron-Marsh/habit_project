@@ -6,6 +6,8 @@
 
 This project, Habit Maker, is a full stack application that allows users to create and track their own habits to enable the formation of good habits or rejection of bad ones. Habits are created with a target to reach in a given time. For example, you may want to read 3 books a month. Everytime you read a book, you can mark it up. If you hit 3 by the end of the month, you will complete your target and receive +1 to your streak. The streak will keep going until you fail to read 3 books in a month, or skip a month. This is all taken care of in the backend of the application automatically.
 
+You can visit the live site at: [https://habit-makers.netlify.app/](https://habit-makers.netlify.app/)
+
 ### Project Approaches
 
 Kanban boards were used to plan out the things to do, and testing was used to ensure the application worked as intended.
