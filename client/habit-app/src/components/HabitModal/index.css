@@ -1,0 +1,16 @@
+.deleteBtn {
+    border-radius: 8px;
+    font-family: poppins;
+    border: none;
+    background-color: crimson;
+    color: #fefefe;
+    margin: 0.3rem;
+    padding: 0.4rem 1rem;
+}
+.deleteBtn:hover {
+    transform: translate(0px, -2px)
+  }
+.popover {
+    text-align: center;
+    font-family: poppins;
+}
