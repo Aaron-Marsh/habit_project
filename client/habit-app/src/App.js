@@ -1,16 +1,41 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-import { HomePage, HabitsPage } from './pages/index'
+import { NotLoggedinPage, LoggedinPage } from './pages/index'
 import './App.css';
 
 function App() {
+  const [userId, setUserId] = useState('')
+  const [username, setUsername] = useState('')
+
+  const handleUserId = userId => setUserId(userId)
+  const handleUsername = username => setUsername(username)
+  
   return (
     <>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/habits' element={<HabitsPage />} />
-      </Routes>
+      <div className='containerbg'>
+
+        <div className='area'>
+          <ul className='circles'>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          </ul>
+          <div className='frame'>
+          {userId ? (
+            <LoggedinPage userId={userId} username={username} />
+            ) : (
+            <NotLoggedinPage handleUserId={handleUserId} handleUsername={handleUsername} />
+          )}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

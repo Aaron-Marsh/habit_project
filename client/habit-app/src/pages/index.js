@@ -1,2 +1,2 @@
-export { default as HomePage } from './HomePage';
-export { default as HabitsPage } from './HabitsPage';
+export { default as NotLoggedinPage } from './NotLoggedinPage';
+export { default as LoggedinPage } from './LoggedinPage';

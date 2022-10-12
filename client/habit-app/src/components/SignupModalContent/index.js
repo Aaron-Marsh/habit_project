@@ -96,10 +96,10 @@ function SignupModalContent(props) {
             </Modal.Body>
             <Modal.Footer>
                 <div className="btnFootercontainer">
-                <button onClick={onRegisterClick}>
+                <button className="btnFooter" onClick={onRegisterClick}>
                     Register
                 </button>
-                <button onClick={props.handleShowLogin}>
+                <button className="btnClear" onClick={props.handleShowLogin}>
                     Already have an account? Login
                 </button>
                 </div>

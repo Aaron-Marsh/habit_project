@@ -65,23 +65,24 @@ function CreateHabitButton(props) {
 
     return(
         <>
-        <button style={{borderRadius:'0px'}} onClick={handleShow}>Make a new Habit</button>
-        <Modal show={show} onHide={handleClose} >
+        <button className="btn" onClick={handleShow}>Make a new Habit</button>
+        <Modal show={show} onHide={handleClose} centered>
             <Modal.Header closeButton>
-                <Modal.Title>Make a New Habit!</Modal.Title>
+                <Modal.Title className='modal-title'>Make a New Habit!</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
                 <form>
                     <input
                         type="text"
+                        className='main-text'
                         required
                         placeholder="Habit title"
                         onChange={onTitleInputChange}
                         aria-label="title input"
                         maxLength={30}
                     />
-                    <select required aria-label="frequency input" onChange={onFrequencyInputChange}>
+                    <select className='main-text' required aria-label="frequency input" onChange={onFrequencyInputChange}>
                         <option defaultValue>Frequency</option>
                         <option>Daily</option>
                         <option>Weekly</option>
@@ -89,6 +90,7 @@ function CreateHabitButton(props) {
                     </select>
                     <input
                         type="number"
+                        className='main-text'
                         required
                         min={1}
                         max={100}
@@ -102,7 +104,7 @@ function CreateHabitButton(props) {
 
             <Modal.Footer>
                 <div className="btnFootercontainer">
-                <button onClick={onSubmitClick}>Make Habit</button>
+                <button className="btnFooter" onClick={onSubmitClick}>Make Habit</button>
                 </div>
             </Modal.Footer>
 

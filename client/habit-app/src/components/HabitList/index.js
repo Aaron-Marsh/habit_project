@@ -41,7 +41,7 @@ function HabitList(props) {
     return(
         <>
             {habits.daily.length ? (<>
-                <h2>Daily Habits</h2>
+                <h3>Daily Habits</h3>
                 {habits.daily.map(habit => (
                 <div key={habit.id}>
                     <Habit habit={habit} updateHabits={updateHabits} />
@@ -51,7 +51,7 @@ function HabitList(props) {
             ) : null
             }
             {habits.weekly.length ? (<>
-                <h2>Weekly Habits</h2>
+                <h3>Weekly Habits</h3>
                 {habits.weekly.map(habit => (
                 <div key={habit.id}>
                     <Habit habit={habit} updateHabits={updateHabits} />
@@ -61,7 +61,7 @@ function HabitList(props) {
             ) : null
             }
             {habits.monthly.length ? (<>
-                <h2>Monthly Habits</h2>
+                <h3>Monthly Habits</h3>
                 {habits.monthly.map(habit => (
                 <div key={habit.id}>
                     <Habit habit={habit} updateHabits={updateHabits} />
@@ -70,6 +70,9 @@ function HabitList(props) {
             </>
             ) : null
             }
+            {(habits.daily.length || habits.weekly.length || habits.monthly.length) ? null : (
+                <p>Want to read 3 books a month? Set a title of 'Read books', a frequency of 'monthly', and a target to reach of '3'!</p>
+            )}
             <CreateHabitButton userId={props.userId} updateHabits={updateHabits} />
         </>
     )

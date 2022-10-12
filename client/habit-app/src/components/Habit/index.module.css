@@ -1,23 +1,45 @@
+.fullContainer {
+    display: flex;
+    justify-content: center;
+}
 .habitContainer {
-    display: inline-block;
     border-radius: 15px;
     overflow: hidden;
+    white-space: nowrap;
 }
 .habitButton {
+    font-family: poppins;
+    
+    font-size: 1.3rem;
     border: none;
     min-height: 3.5rem;
     background-color: steelblue;
     width: 3rem;
     color: white;
+    white-space: normal;
+    word-wrap: break-word;
 }
 .habitButton:hover {
     opacity: 0.8;
 }
 .mainHabitButton {
-    width: 80vw;
-    max-width: 40rem;
+    width: 30rem;
 }
 
 
+@media (max-width: 960px) {
+    .mainHabitButton {
+        width: 20rem;
+    }
+  }
 
-
+  @media (max-width: 540px) {
+    .mainHabitButton {
+        width: 10rem;
+    }
+  }
+  @media (max-width: 370px) {
+    .mainHabitButton {
+        width: 8rem;
+    }
+  }

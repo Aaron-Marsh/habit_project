@@ -15,7 +15,7 @@ function LoginModal(props) {
 
   return (
     <>
-      <button onClick={handleShow}>
+      <button className='btn main-text' onClick={handleShow}>
         Login / Signup
       </button>
 

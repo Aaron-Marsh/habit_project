@@ -14,8 +14,9 @@ function Habit({ habit, updateHabits }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handlePlusClicked = async () => {
+    const handlePlusClicked = async e => {
         if (current < habit.goal) {
+            e.target.setAttribute('disabled','')
             try {
                 setCurrent(prevState => prevState + 1)
                 if (current === habit.goal - 1) {
@@ -39,11 +40,13 @@ function Habit({ habit, updateHabits }) {
             } catch(err) {
                 alert("Could not update habit")
             }
+            e.target.removeAttribute('disabled')
         }
     }
 
-    const handleMinusClicked = async () => {
+    const handleMinusClicked = async e => {
         if (current > 0) {
+            e.target.setAttribute('disabled','')
             try {
                 setCurrent(prevState => prevState - 1)
                 if (completed) {
@@ -67,19 +70,22 @@ function Habit({ habit, updateHabits }) {
             } catch(err) {
                 alert("Could not update habit", err)
             }
+            e.target.removeAttribute('disabled')
         }
     }
 
     return(
         <>
+        <div className={styles.fullContainer}>
         <div className={styles.habitContainer}>
             <button className={styles.habitButton} onClick={handleMinusClicked}>-</button>
             <button className={`${styles.habitButton} ${styles.mainHabitButton}`} style={completed ? {backgroundColor:'green'} : {}} onClick={handleShow}>
                 {habit.title} {current}/{habit.goal}
             </button>
             <button className={styles.habitButton} onClick={handlePlusClicked}>+</button>
-
         </div>
+        </div>
+
         <HabitModal habit={habit} current={current} completed={completed} streak={streak} show={show} onHide={handleClose} updateHabits={updateHabits} />
         </>
     )

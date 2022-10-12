@@ -4,6 +4,8 @@ import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import axios from "axios"
 
+import './index.css'
+
 
 function HabitModal(props) {
 
@@ -27,8 +29,10 @@ function HabitModal(props) {
         <Popover id="test">
             <Popover.Body>
             <p>Are you sure? Once deleted, this habit cannot be restored!</p>
-            <button onClick={cancelDeleteClick}>Don't Delete</button>
-            <button onClick={onDeleteClick}>Confirm Delete</button>
+            <div className="btnFootercontainer">
+            <button className="btnFooter" onClick={cancelDeleteClick}>Don't Delete</button>
+            <button className="deleteBtn" onClick={onDeleteClick}>Confirm Delete</button>
+            </div>
           </Popover.Body>
         </Popover>
       );
@@ -37,7 +41,7 @@ function HabitModal(props) {
     <>
         <Modal show={props.show} onHide={props.onHide} centered>   
             <Modal.Header closeButton>
-                <Modal.Title>{props.habit.title}</Modal.Title>
+                <Modal.Title className='modal-title'>{props.habit.title}</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
@@ -58,7 +62,7 @@ function HabitModal(props) {
                   rootClose
                 >
                 <div className="btnFootercontainer">
-                <button id="delete-habit-btn">
+                <button className="deleteBtn" id="delete-habit-btn">
                     Delete Habit
                 </button>
                 </div>

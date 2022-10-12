@@ -57,6 +57,7 @@ function LoginModalContent(props) {
                 <label htmlFor="login-username"></label>
                     <input
                         id="login-username"
+                        className="main-text"
                         type="text"
                         required
                         placeholder="Username"
@@ -66,6 +67,7 @@ function LoginModalContent(props) {
                     <label htmlFor="login-password"></label>
                     <input
                         id="login-password"
+                        className="main-text"
                         type="password"
                         required
                         placeholder="Password"
@@ -78,10 +80,10 @@ function LoginModalContent(props) {
       
             <Modal.Footer>
                 <div className="btnFootercontainer">
-                <button onClick={onSigninClick}>
+                <button className="btnFooter" onClick={onSigninClick}>
                     Sign in
                 </button>
-                <button onClick={props.handleShowSignup}>
+                <button className="btnClear" onClick={props.handleShowSignup}>
                     Don't have an account? Signup
                 </button>
                 </div>
