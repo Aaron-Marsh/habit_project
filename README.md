@@ -32,15 +32,15 @@ In order to run this project locally, I have used node v16.17.1.
 
 ### Installation
 
-1. Clone this repository in your terminal, `git clone ...`.
+1. Clone this repository in your terminal: `git clone ...`
 
-2. To setup the server installations locally cd into 'server' folder, `cd server`
+2. To setup the server installations locally, cd into 'server' folder: `cd server`
 
-3. Install dependencies, `npm i -D`
+3. Install dependencies: `npm i -D`
 
-4. To setup the client locally cd into the 'client/habit-app' folder (client at same directory level as server), `cd client/habit-app`
+4. To setup the client locally, cd into the 'client/habit-app' folder (client at same directory level as server): `cd client/habit-app`
 
-5. Install dependencies, `npm i -D`
+5. Install dependencies: `npm i -D`
 
 ### Running
 
