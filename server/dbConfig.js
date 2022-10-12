@@ -5,7 +5,7 @@ const dbName = "habitrabbits"
 
 const init = async () => {
   let client = await MongoClient.connect(connectionUrl)
-  console.log('connected to database!', dbName)
+  console.log('connected to database!')
   return client.db(dbName)
 }
 

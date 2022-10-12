@@ -79,6 +79,8 @@ class Habit {
                 if ((command === 1) && (this.current === this.goal - 1)) {
                         await db.collection('habits').updateOne( {_id: ObjectId(this.id) }, {$set: {completed: true}, $inc: {streak: 1}})
                         
+                } else if ((command === -1) && (this.completed === true)) {
+                    await db.collection('habits').updateOne( {_id: ObjectId(this.id) }, {$set: {completed: false}, $inc: {streak: -1}})
                 }
                         
                 const updatedHabit = await db.collection('habits').updateOne( {_id: ObjectId(this.id) }, {$inc: {current: command}})
